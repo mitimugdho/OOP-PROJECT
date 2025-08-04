@@ -21,6 +21,11 @@ public class Course {
         next.setBounds(160,100,80,25);
         couseFrame.add(next);
 
+        next.addActionListener(e -> {
+            couseFrame.dispose();
+            new Attendance();
+        } );
+
         couseFrame.setVisible(true);
     }
 }

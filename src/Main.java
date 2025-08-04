@@ -2,33 +2,28 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        JFrame frame= new JFrame("IIT Attendance Tracker");
-        frame.setSize(400,200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        JFrame mainFrame= new JFrame("IIT Attendance Tracker");
+        mainFrame.setSize(400,200);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setLayout(null);
 
-        JLabel roll = new JLabel("Enter roll:" );
-        roll.setBounds(80,50,80,25);
-        frame.add(roll);
+        JButton signUp = new JButton("Sign Up");
+        signUp.setBounds(150, 50, 85, 25);
+        mainFrame.add(signUp);
 
-        JTextField rollField = new JTextField();
-        rollField.setBounds(160,50,80,25);
-        frame.add(rollField);
+        JButton logIn = new JButton("Log In");
+        logIn.setBounds(150, 100, 85, 25);
+        mainFrame.add(logIn);
 
-        JButton next= new JButton("next");
-        next.setBounds(160,100,80,25);
-        frame.add(next);
-
-        next.addActionListener(e -> {
-            String getRoll= rollField.getText();
-            if (!getRoll.isEmpty()) {
-                frame.dispose(); // Close current form
-                new Course(getRoll); // Pass name to next form
-            } else {
-                JOptionPane.showMessageDialog(frame, "Please enter your roll.");
-            }
-        });
-        frame.setVisible(true);
+        signUp.addActionListener(e -> {
+            mainFrame.dispose();
+            new SignUpInfo();
+        } );
+        logIn.addActionListener(e -> {
+            mainFrame.dispose();
+            new Roll();
+        } );
+        mainFrame.setVisible(true);
     }
 
 }
